@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+/* DaisyUI Theme Configuration */
+@plugin "daisyui" {
+  themes: light --default, dark;
+}
+
+/* Light Theme */
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #8EB83A;
+  /* Softer Lime Green */
+  --color-primary-content: #ffffff;
+  --color-secondary: #1F4B6E;
+  /* Muted Deep Blue */
+  --color-secondary-content: #ffffff;
+  --color-accent: #2A8C96;
+  /* Deep Teal */
+  --color-accent-content: #ffffff;
+  --color-neutral: #4b5563;
+  /* Gray-600 */
+  --color-neutral-content: #ffffff;
+  --color-base-100: #fafafa;
+  /* Off-white instead of pure white */
+  --color-base-200: #eaeef2;
+  /* Soft Cool Gray */
+  --color-base-300: #d1d5db;
+  /* Gray-300 */
+  --color-base-content: #111827;
+  /* Gray-900 for darker text */
+  --color-info: #3b82f6;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+}
+
+/* Dark Theme - Slate Color Palette */
+@plugin "daisyui/theme" {
+  name: "dark";
+  --color-primary: #A3E635;
+  --color-primary-content: #0f172a;
+  --color-secondary: #38BDF8;
+  --color-secondary-content: #0f172a;
+  --color-accent: #5EEAD4;
+  --color-accent-content: #0f172a;
+  --color-neutral: #94a3b8;
+  --color-neutral-content: #0f172a;
+  --color-base-100: #0f172a;
+  --color-base-200: #1e293b;
+  --color-base-300: #334155;
+  --color-base-content: #f8fafc;
+  --color-info: #60a5fa;
+  --color-success: #4ade80;
+  --color-warning: #facc15;
+  --color-error: #f87171;
+}
+
+/* Base Styles */
+body {
+  font-family: "Urbanist", "Inter", "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme Transition for Smooth Switching */
+*,
+*::before,
+*::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Custom Theme Variables */
+:root {
+  --bg-section: rgba(3, 55, 61, 1);
+  --text-heading: #030712;
+  --text-body: #1f2937;
+  --text-muted: #4b5563;
+  --border-color: #e5e7eb;
+}
+
+[data-theme="dark"] {
+  --bg-section: rgba(15, 23, 42, 1);
+  --text-heading: #f8fafc;
+  --text-body: #e2e8f0;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+}
+
+/* Utility Classes */
+.bg-section {
+  background-color: var(--bg-section);
+}
+
+.text-heading {
+  color: var(--text-heading);
+}
+
+.text-body {
+  color: var(--text-body);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* Gradient Backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, #CAEB66 0%, #33929D 100%);
+}
+
+[data-theme="dark"] .gradient-primary {
+  background: linear-gradient(135deg, #A3E635 0%, #5EEAD4 100%);
+}
+
+/* Card Styles */
+.card-themed {
+  background-color: var(--color-base-100);
+  border: 1px solid var(--border-color);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Scrollbar Styling for Dark Mode */
+[data-theme="dark"] ::-webkit-scrollbar {
+  width: 10px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 5px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
